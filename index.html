@@ -1,0 +1,44 @@
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="theme-color" content="#000000" />
+        <meta
+          name="description"
+          content="SNAIL. RACE."
+        />
+        <link rel="stylesheet" href="./index.css" />
+        <script src="./jquery.js"></script>
+        <script src="./index.js"></script>
+    </head>
+    <body>
+        <div>
+            <ul class="bettingCenter">
+                <li>
+                    <input type='radio' id='bet0' name='snailBet' value='0' />
+                    <label for='bet0'>Lightningbolt</label>
+                </li>
+                <li>
+                    <input type='radio' id='bet1' name='snailBet' value='1' />
+                    <label for='bet0'>Mach5</label>
+                </li>
+                <li>
+                    <input type='radio' id='bet2' name='snailBet' value='2' />
+                    <label for='bet0'>Flashy</label>
+                </li>
+            </ul>
+            <div class="raceBox">
+                <div id="0" class="snail">
+                    <img src="./images/Snail1.png" />
+                </div>
+                <div id="1" class="snail">
+                    <img src="./images/Snail2.png" />
+                </div>
+                <div id="2" class="snail">
+                    <img src="./images/Snail3.png" />
+                </div>
+            </div>
+            <button id="btnGo" onclick="startRace()">GO!!!</button>
+        </div>
+    </body>
+</html>
