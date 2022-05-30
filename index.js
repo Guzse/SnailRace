@@ -169,8 +169,8 @@ function loop() {
         $("#time").text(dateFormat());
         snailData.forEach((data, index) => {
             let position;
-            let boost = titlePresses > 10 ? 40 : 1;
-            data.position += data.speed / 4000 * boost;
+            let boost = titlePresses > 10 ? 100 : 1;
+            data.position += data.speed / 10000 * boost;
             if (data.luck < 25) {
                 position = translate4(data.position);
             } else if (data.luck < 50) {
