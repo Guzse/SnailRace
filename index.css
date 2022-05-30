@@ -1,31 +1,208 @@
+@import url('https://fonts.googleapis.com/css2?family=Audiowide&family=Roboto+Mono&display=swap');
+
+*:not(ul), *::after:not(ul), *::before:not(ul) {
+    box-sizing: border-box;
+}
+
 body {
-    width: 98%;
+    font-family: 'Roboto Mono';
+    font-size: 20px;
+    margin: 0px;
     background-color: beige;
     display: flex;
     justify-content: center;
 }
 
-body > div {
-    width: 800px;
+ul, h1, h2, h3, h4, h5, h6 {
+    padding: 0px;
+    margin: 0px 0px 0.5em;
+}
+
+h1 {
+    font-family: 'Audiowide';
+    font-size: 5em;
+    width: 100%;
+    text-align: center;
+    margin: 20px auto;
+    -webkit-user-select: none;  
+    -moz-user-select: none;    
+    -ms-user-select: none;      
+    user-select: none;
+}
+
+dialog {
+    min-width: 300px;
+    border:none;
+    display: grid;
+}
+
+.raceEnd {
+    text-align: center;
+}
+.raceEnd p {
+    margin-top: 0px;
+    margin-bottom: 1em;
+}
+
+dialog:not([open]) {
+    display: none!important;
+}
+
+dialog::backdrop {
+  background: rgba(0, 0, 0, 0.25);
+}
+
+button {
+    font-size: 1em;
+    font-family: 'Roboto Mono';
+    margin: 0px auto;
+}
+
+#root {
+    width: 100%;
     background-color: white;
-    display: block;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-;
+}
+
+.raceBox {
+    margin: 50px 50px auto;
+    width: auto;
+    display: grid;
+}
+
+.start {
+    content: ' ';
+    height: 300px;
+    width: 20px;
+    left: 120px;
+    
+    position: absolute;
+    z-index: 1;
+
+    background-image: url('./Images/SVG/RacingStripe.svg');
+}
+
+.stop {
+    content: ' ';
+    height: 300px;
+    width: 20px;
+    right: 120px;
+    
+    position: absolute;
+    z-index: 1;
+
+    background-image: url('./Images/SVG/RacingStripe.svg');
 }
 
 .snail {
+    z-index: 2;
     width: 100px;
-    position: relative;
 }
 
 .snail img {
     width: 100%;
 }
 
-.raceBox {
-    margin-left: 100px;
-    margin-right: 100px;
+.bettingCenter {    
+    position: absolute;
+    z-index: 10;
+    display: grid;
+    column-gap: 20px;
+    grid-template-columns: [start] 1fr [gap] 1fr [end];
+}
+
+.bettingCenter > * {
+    grid-column: 1;
+}
+
+.overview {
+    grid-column: 2;
+    grid-row-start: 1;
+    grid-row-end: 3;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.overview img {
+    width: 200px;
+    margin: 0px auto;
+}
+
+.overview progress {
     width: 100%;
 }
 
-.bettingCenter {
+.bettingCenter ul {
     list-style: none;
+}
+
+.footer {
+    padding: 0px 10px;
+    display: flex;
+    justify-content:space-around;
+}
+
+.spinning {
+    animation: 0.5s linear 0s infinite running spin;
+}
+
+.party {
+    animation: 3s linear 0s infinite running hueChange;
+}
+
+@media only screen and (max-width: 800px) {
+    h1 {
+        font-size: 3em;
+        margin-bottom: 0px;
+    }
+    .raceBox {
+        margin: auto 10px;
+        left: 150px;
+    }
+
+    .bettingCenter {
+        grid-template-columns: [start] 1fr [end];
+    }
+
+    .overview {
+        grid-column: 1;
+        grid-row-start: 2;
+        grid-row-end: 2;
+    }
+
+    .start {
+        left: 80px;
+    }
+
+    .stop {
+        right: 80px;
+    }
+
+    .footer {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes hueChange {
+    from {
+        color: hsl(0, 100%, 50%);
+        filter: hue-rotate(0);
+    }
+    to {
+        color: hsl(0, 100%, 50%);
+        filter: hue-rotate(360deg);
+    }
 }

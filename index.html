@@ -1,44 +1,69 @@
 <html>
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="theme-color" content="#000000" />
-        <meta
-          name="description"
-          content="SNAIL. RACE."
-        />
-        <link rel="stylesheet" href="./index.css" />
-        <script src="./jquery.js"></script>
-        <script src="./index.js"></script>
-    </head>
-    <body>
-        <div>
-            <ul class="bettingCenter">
-                <li>
-                    <input type='radio' id='bet0' name='snailBet' value='0' />
-                    <label for='bet0'>Lightningbolt</label>
-                </li>
-                <li>
-                    <input type='radio' id='bet1' name='snailBet' value='1' />
-                    <label for='bet0'>Mach5</label>
-                </li>
-                <li>
-                    <input type='radio' id='bet2' name='snailBet' value='2' />
-                    <label for='bet0'>Flashy</label>
-                </li>
-            </ul>
-            <div class="raceBox">
-                <div id="0" class="snail">
-                    <img src="./images/Snail1.png" />
-                </div>
-                <div id="1" class="snail">
-                    <img src="./images/Snail2.png" />
-                </div>
-                <div id="2" class="snail">
-                    <img src="./images/Snail3.png" />
-                </div>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta name="description" content="SNAIL. RACE." />
+    <link rel="stylesheet" href="./index.css" />
+    <script src="./jquery.js"></script>
+    <script src="./index.js" defer></script>
+</head>
+
+<body>
+    <div id="root">
+        <h1 onclick="onTitlePress()">Snail Race</h1>
+        <div class="raceBox">
+            <div id="0" class="snail">
+                <img src="./images/Snail1.png" />
             </div>
-            <button id="btnGo" onclick="startRace()">GO!!!</button>
+            <div id="1" class="snail">
+                <img src="./images/Snail2.png" />
+            </div>
+            <div id="2" class="snail">
+                <img src="./images/Snail3.png" />
+            </div>
+            <div class="start"></div>
+            <div class="stop"></div>
         </div>
-    </body>
+        <div class="footer">
+            <h2 id="wins">Wins: </h2>
+            <h2 id="time">0:00:00:00</h2>
+        </div>
+    </div>
+    <dialog class="raceEnd">
+        <h2>You lost!</h2>
+        <p></p>
+        <button onclick="location.reload()">Restart</button>
+    </dialog>
+    <dialog class="bettingCenter">
+        <h2>Place your bet:</h2>
+        <div class="overview">
+            <img src="./images/Temp@2x.png" />
+            <label for="exp">Experience: </label>
+            <progress name="exp" id="exp" value="0" max="10"></progress>
+            <label for="grit">Grit: </label>
+            <progress name="grit" id="grit" value="0" max="10"></progress>
+            <label for="speed">Speed: </label>
+            <progress name="speed" id="speed" value="0" max="10"></progress>
+            <p>Victories: </p>
+        </div>
+        <ul onchange="onSelect(this)">
+            <li>
+                <input type='radio' id='bet0' name='snailBet' value='0' />
+                <label for='bet0'>Lightning Bolt</label>
+            </li>
+            <li>
+                <input type='radio' id='bet1' name='snailBet' value='1' />
+                <label for='bet0'>Mach5</label>
+            </li>
+            <li>
+                <input type='radio' id='bet2' name='snailBet' value='2' />
+                <label for='bet0'>Flashy</label>
+            </li>
+        </ul>
+        <button id="btnGo" disabled onclick="startRace()">GO!!!</button>
+    </dialog>
+</body>
+
 </html>
