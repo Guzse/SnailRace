@@ -14,7 +14,7 @@ const generateSnailLuck = () => {
 let snailData = [
     {
         name: "Lightning Bolt",
-        img: './images/Snail1.png',
+        img: 'https://i.imgur.com/PNx5mzO.png',
         speed: generateSnailSpeed(),
         luck: generateSnailLuck(),
         position: 0,
@@ -27,7 +27,7 @@ let snailData = [
     },
     {
         name: "Mach5",
-        img: './images/Snail2.png',
+        img: 'https://i.imgur.com/YxaAKkR.png',
         speed: generateSnailSpeed(),
         luck: generateSnailLuck(),
         position: 0,
@@ -40,7 +40,7 @@ let snailData = [
     },
     {
         name: "Flashy",
-        img: './images/Snail3.png',
+        img: 'https://i.imgur.com/YiLVsAM.png',
         speed: generateSnailSpeed(),
         luck: generateSnailLuck(),
         position: 0,
